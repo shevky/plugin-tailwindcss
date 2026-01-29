@@ -24,12 +24,20 @@ const hooks = {
     }
 
     const isWindows = process.platform === "win32";
-    const tailwindBin = io.path.resolve(
+    const tailwindBinName = isWindows ? "tailwindcss.cmd" : "tailwindcss";
+    const rootBin = io.path.resolve(
+      ctx.paths.root,
+      "node_modules",
+      ".bin",
+      tailwindBinName,
+    );
+    const pluginBin = io.path.resolve(
       PLUGIN_ROOT,
       "node_modules",
       ".bin",
-      isWindows ? "tailwindcss.cmd" : "tailwindcss",
+      tailwindBinName,
     );
+    const tailwindBin = (await ctx.file.exists(rootBin)) ? rootBin : pluginBin;
 
     if (!(await ctx.file.exists(tailwindBin))) {
       ctx.log.err(
@@ -51,7 +59,7 @@ const hooks = {
 
 const PLUGIN = {
   name: "shevky-tailwindcss",
-  version: "0.0.1",
+  version: "0.0.2",
   hooks,
 };
 
