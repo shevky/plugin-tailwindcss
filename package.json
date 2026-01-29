@@ -1,0 +1,42 @@
+{
+  "name": "@shevky/plugin-tailwindcss",
+  "version": "0.0.1",
+  "description": "Shevky plugin that runs Tailwind CSS during builds.",
+  "type": "module",
+  "main": "main.js",
+  "types": "index.d.ts",
+  "keywords": [
+    "shevky",
+    "plugin",
+    "tailwind",
+    "tailwindcss"
+  ],
+  "author": {
+    "email": "fatih@tatoglu.net",
+    "name": "Fatih Tatoğlu",
+    "url": "https://tatoglu.net"
+  },
+  "maintainers": [
+    {
+      "email": "fatih@tatoglu.net",
+      "name": "Fatih Tatoğlu",
+      "url": "https://tatoglu.net"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shevky/plugin-tailwindcss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shevky/plugin-tailwindcss/issues"
+  },
+  "homepage": "https://github.com/shevky/plugin-tailwindcss#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@shevky/base": "^0.0.1",
+    "@tailwindcss/cli": "^4.1.18"
+  }
+}
