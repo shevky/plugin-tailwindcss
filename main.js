@@ -1,5 +1,7 @@
 import { io, exec, plugin } from "@shevky/base";
 
+const PLUGIN_NAME = "shevky-tailwindcss";
+const PLUGIN_VERSION = "0.0.4";
 const PLUGIN_ROOT = import.meta.dirname ?? process.cwd();
 
 /** @type {import("@shevky/base").PluginHooks} */
@@ -10,15 +12,15 @@ const hooks = {
     const distPath = io.path.resolve(ctx.paths.dist, "output.css");
 
     if (!(await ctx.file.exists(configPath))) {
-      ctx.log.err(
-        `Skipping CSS pipeline because Tailwind config is missing at ${configPath}.`,
+      ctx.log.warn(
+        `[${PLUGIN_NAME}] Skipping CSS pipeline because Tailwind config is missing at ${configPath}.`,
       );
       return;
     }
 
     if (!(await ctx.file.exists(sourePath))) {
-      ctx.log.err(
-        `Skipping CSS pipeline because the source file is missing at ${sourePath}.`,
+      ctx.log.warn(
+        `[${PLUGIN_NAME}] Skipping CSS pipeline because the source file is missing at ${sourePath}.`,
       );
       return;
     }
@@ -41,7 +43,7 @@ const hooks = {
 
     if (!(await ctx.file.exists(tailwindBin))) {
       ctx.log.err(
-        `Skipping CSS pipeline because Tailwind CLI is missing at ${tailwindBin}.`,
+        `[${PLUGIN_NAME}] Skipping CSS pipeline because Tailwind CLI is missing at ${tailwindBin}.`,
       );
       return;
     }
@@ -53,14 +55,9 @@ const hooks = {
     }
 
     await exec.execute(tailwindBin, args, ctx.paths.root);
-    ctx.log.debug("TailwindCSS has been compiled.");
+    ctx.log.debug(`[${PLUGIN_NAME}] TailwindCSS has been compiled.`);
   },
 };
 
-const PLUGIN = {
-  name: "shevky-tailwindcss",
-  version: "0.0.2",
-  hooks,
-};
-
+const PLUGIN = { name: PLUGIN_NAME, version: PLUGIN_VERSION, hooks };
 export default PLUGIN;
