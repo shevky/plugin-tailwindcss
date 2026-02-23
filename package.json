@@ -1,6 +1,6 @@
 {
   "name": "@shevky/plugin-tailwindcss",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Shevky plugin that runs Tailwind CSS during builds.",
   "type": "module",
   "main": "main.js",
@@ -36,7 +36,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@shevky/base": "^0.0.2",
-    "@tailwindcss/cli": "^4.1.18"
+    "@shevky/base": "^0.0.5",
+    "@tailwindcss/cli": "^4.2.1"
   }
 }

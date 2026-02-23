@@ -1,7 +1,7 @@
 import { io, exec, plugin } from "@shevky/base";
 
 const PLUGIN_NAME = "shevky-tailwindcss";
-const PLUGIN_VERSION = "0.0.4";
+const PLUGIN_VERSION = "0.0.5";
 const PLUGIN_ROOT = import.meta.dirname ?? process.cwd();
 
 /** @type {import("@shevky/base").PluginHooks} */
